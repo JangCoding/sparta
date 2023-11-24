@@ -155,20 +155,20 @@
         }
 
 
-        let url = "http://spartacodingclub.shop/sparta_api/weather/seoul";
+        // let url = "http://spartacodingclub.shop/sparta_api/weather/seoul";
 
-        // 페이지가 준비 되면 // 근데 type = "module" 되면 마지막에 실행되기 때문에 무쓸모
-        $(document).ready(function () { })
+        // // 페이지가 준비 되면 // 근데 type = "module" 되면 마지막에 실행되기 때문에 무쓸모
+        // $(document).ready(function () { })
 
-        fetch(url).then(res => res.json()).then(data => {
-            let temp = data['temp'];
-            if (temp > 20) {
-                $('#msg').text("더워요");
-            }
-            else {
-                $('#msg').text("추워요");
-            }
-        })
+        // fetch(url).then(res => res.json()).then(data => {
+        //     let temp = data['temp'];
+        //     if (temp > 20) {
+        //         $('#msg').text("더워요");
+        //     }
+        //     else {
+        //         $('#msg').text("추워요");
+        //     }
+        // })
 
         let docs = await getDocs(collection(db, "movies"));
         docs.forEach((doc) => {
