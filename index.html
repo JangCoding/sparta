@@ -102,7 +102,7 @@
         const db = getFirestore(app);
 
 
-        $("#postingbtn").click(async function () {
+        $("#savebtn").click(async function () {
             let image = $('#image').val();
             let title = $('#title').val();
             let star = $('#star').val();
@@ -118,10 +118,10 @@
             // Firebase 의 콜렉션 db 이름은 albums 에 doc 내용 추가하기
             await addDoc(collection(db, "movies"), doc);
 
-
+            window.location.reload();
         });
 
-        $("#savebtn").click(async function () {
+        $("#postingbtn").click(async function () {
             $('#postingbox').toggle();
         });
 
@@ -161,14 +161,13 @@
         $(document).ready(function () { })
 
         fetch(url).then(res => res.json()).then(data => {
-            let mise = data['temp'];
-            if (mise > 20) {
+            let temp = data['temp'];
+            if (temp > 20) {
                 $('#msg').text("더워요");
             }
             else {
                 $('#msg').text("추워요");
             }
-
         })
 
         let docs = await getDocs(collection(db, "movies"));
@@ -190,7 +189,7 @@
                             </div>
                         </div>`;
 
-            $('#cards').append(temp_html);
+            $('#cards').append(temp_html); 
         });
 
 
@@ -241,7 +240,7 @@
                 <h1 class="display-5 fw-bold">킹덤</h1>
                 <p class="col-md-8 fs-4">병든 왕을 둘러싸고 흉흉한 소문이 떠돈다. 어둠에 뒤덮인 조선, 기이한 역병에 신음하는 산하. 정체 모를 악에 맞서 백성을 구원할 희망은 오직
                     세자뿐이다.</p>
-                <button id="savebtn" type="button" class="btn btn-outline-light">영화 기록하기</button>
+                <button id="postingbtn" type="button" class="btn btn-outline-light">영화 기록하기</button>
 
                 <button type="button" class="btn btn-outline-light">상세정보</button>
             </div>
